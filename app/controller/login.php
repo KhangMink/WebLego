@@ -20,8 +20,7 @@
 				if(isset($_SESSION['login']))	{
 					header("Location:".BASE_URL."order");
 				}
-				$this->load->view('cpanel/login');		
-	
+				$this->load->view('cpanel/login');			
 			}
 			public function dashboard(){
 				Session::checkSession();
@@ -42,7 +41,6 @@
 				 	$message['msg']="Tài khoản hoặc mật khẩu không chính xác";
 					header('Location:'.BASE_URL."login?msg=".urldecode(serialize($message)));
 				 }else{
-
 				 	$result=$loginmodel->getlogin($table_admin,$username,$password);
 				 	Session::init();
 				 	// Session::set('login',true);

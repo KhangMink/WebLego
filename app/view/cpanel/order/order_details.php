@@ -48,7 +48,7 @@ table, th, td {
  <table class="table table-striped">
     <thead>
       <tr>
-        <th>ID</th>
+        <th>STT</th>
         <th>Tên sản phẩm</th>
         <th>Hình ảnh</th>
         <th>Số lượng</th>
@@ -78,10 +78,14 @@ table, th, td {
   	 ?>
      <form method="POST" action="<?php echo BASE_URL ?>order/order_confirm/<?php echo $ord['order_code'] ?>">
      <tr> 
+        <?php if ($ord['order_status']==2) {     
+        ?>
         <td><input type="submit" name="xuly" value="Đã xử lý" class="btn btn-default "></td>
-      
-       <td align="right" colspan="4">Tổng tiền : <?php echo number_format($total,0,',','.').'vnđ' ?></td>
-         <td><input type="submit" name="thanhtoan" value="Đã thanh toán" class="btn btn-default "></td>
+      <?php }else if($ord['order_status']==1){ ?>
+        <td><input type="submit" name="thanhtoan" value="Đã thanh toán" class="btn btn-default "></td>
+      <?php } ?>
+       <td align="right" colspan="6">Tổng tiền : <?php echo number_format($total,0,',','.').'vnđ' ?></td>
+       
      </tr>
      </form>
     </tbody>

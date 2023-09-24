@@ -92,7 +92,7 @@
                            <tr>
                               <td colspan="7" class="textright_text">
                                  <div class="sum_price_all">
-                                    <span class="text_price">Tổng tiền thành toán</span>: 
+                                    <span class="text_price">Tổng tiền thanh toán</span>: 
                                     <span class="text_price color_red"><?php echo number_format($total,0,',','.').'vnđ' ?></span>
                                  </div>
                               </td>

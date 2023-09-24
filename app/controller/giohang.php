@@ -46,7 +46,7 @@
 				$hour=date("h:i:sa");
 				$order_date=$date.$hour;
 				$data_order=array(
-					'order_status'=>'0',
+					'order_status'=>'2',
 					'order_code'=>$order_code,
 					'order_date'=>$date.' '.$hour
 				);

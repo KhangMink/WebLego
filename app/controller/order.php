@@ -22,10 +22,11 @@
 		public function order_details($order_code){
 				$table_order_details='tbl_order_details';
 				$table_product='tbl_product';
+				$table_order='tbl_order';
 				$ordermodel=$this->load->model('ordermodel');
-				$cond="$table_product.id_product=$table_order_details.product_id AND $table_order_details.order_code='$order_code'";
+				$cond="$table_product.id_product=$table_order_details.product_id  AND $table_order_details.order_code=$table_order.order_code AND $table_order_details.order_code='$order_code'";
 				$cond_infor="$table_order_details.order_code='$order_code'";
-				$data['order_details']=$ordermodel->list_order_details($table_product,$table_order_details,$cond);
+				$data['order_details']=$ordermodel->list_details($table_product,$table_order_details,$table_order,$cond);
 				$data['order_infor']=$ordermodel->list_infor($table_order_details,$cond_infor);
 				$this->load->view('cpanel/header');
 				$this->load->view('cpanel/menu');
@@ -43,7 +44,7 @@
 				}
 				else if($_POST['thanhtoan']==true){
 					$data=array(
-						'order_status'=>2
+						'order_status'=>0
 					);
 				}
 				$result=$ordermodel->order_confirm($table_order,$data,$cond);

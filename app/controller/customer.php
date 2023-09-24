@@ -8,8 +8,6 @@
 		public function index(){
 			$this->list_customer();
 		}
-	
-
 		public function list_customer(){
 			$this->load->view('cpanel/header');
 			$this->load->view('cpanel/menu');

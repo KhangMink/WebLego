@@ -11,7 +11,7 @@
 			return $this->db->insert($table_order_details,$data_details);
 		}
 		public function list_order($table_order){
-			 $sql="SELECT * FROM $table_order ORDER BY order_status=0 DESC";
+			 $sql="SELECT * FROM $table_order ORDER BY order_status DESC";
 			return $this->db->select($sql);	
 		}
 		public	function list_order_details($table_product,$table_order_details,$cond){
@@ -20,6 +20,16 @@
 		}
 		public	function list_order_customer($table_product,$table_order_details,$table_customer,$table_order,$cond){
 			 $sql="SELECT * FROM $table_order_details,$table_product,$table_order,$table_customer WHERE $cond ORDER BY order_details_id DESC";
+			return $this->db->select($sql);	
+		}
+		public function list_details($table_product,$table_order_details,$table_order,$cond){
+			 $sql="SELECT * FROM $table_order_details,$table_product,$table_order WHERE $cond ";
+			return $this->db->select($sql);	
+
+		}
+
+		public function list_order_order($table_order,$table_order_details,$table_product,$cond){
+			 $sql="SELECT * FROM $table_order,$table_order_details,$table_product WHERE $cond Group by $table_order.order_code ORDER BY order_status DESC";
 			return $this->db->select($sql);	
 		}
 		public function list_infor($table_order_details,$cond_infor){

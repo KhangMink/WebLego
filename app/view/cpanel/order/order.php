@@ -39,11 +39,11 @@ table, th, td {
         <td><?php echo $i  ?></td>
         <td><?php echo $ord['order_code'] ?></td>
         <td><?php echo $ord['order_date'] ?></td>
-        <td><?php if($ord['order_status']==0){
+        <td><?php if($ord['order_status']==2){
         					echo 'Đơn hàng mới';
         				}else if($ord['order_status']==1){
         					echo 'Đã xử lý';
-                }else if($ord['order_status']==2){
+                }else if($ord['order_status']==0){
                   echo 'Đã thanh toán';
     					 }
               ?></td>
